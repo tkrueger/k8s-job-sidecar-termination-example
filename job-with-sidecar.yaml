@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: countdown
+spec:
+  template:
+    metadata:
+      name: countdown
+    spec:
+      initContainers:
+      - name: sidecar-container
+        image: sidecar
+        imagePullPolicy: Never
+        restartPolicy: Always
+      containers:
+      - name: counter
+        image: centos:7
+        command:
+         - "bin/bash"
+         - "-c"
+         - "for i in 9 8 7 6 5 4 3 2 1 ; do sleep 1; echo $i ; done"
+      restartPolicy: Never
