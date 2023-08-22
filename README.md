@@ -5,7 +5,7 @@ specifically, how to make a sidecar container stop when the main container is
 finished.
 
 The solution is to trap the `SIGINT` that Kubernetes now sends to the sidecar
-container when the main container completes. Not having this was a bit problem
+container when the main container completes. Not having this was a problem
 in Jobs, because the job will not finish as long a sidecar container is still
 running.
 
