@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 trap 'echo "SIGINT or SIGTERM received: exiting!" && exit 0' TERM INT 
 
